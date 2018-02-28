@@ -33,7 +33,10 @@ RSpec.configure do |config|
     @driver = Appium::Driver.new(desired_caps, true).start_driver
     # Appium.promote_singleton_appium_methods RSpec::Core::ExampleGroup
     Appium.promote_appium_methods RSpec::Core::ExampleGroup
-    find_element(:xpath, '//android.widget.Button[@text="I DONT HAVE A FAVORITE TEAM"]').click
+  end
+
+  config.before(:each) do
+    find_element(:xpath, '//android.widget.Button[@text="I DON\'T HAVE A FAVORITE TEAM"]').click
     find_element(:xpath, '//android.widget.Button[@text="GET STARTED"]').click
   end
 
